@@ -1,0 +1,1 @@
+ssh -o ProxyCommand="wstunnel -c -t stdio:%h:%p https://localhost"

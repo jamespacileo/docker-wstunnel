@@ -1,0 +1,9 @@
+FROM ubuntu:latest
+
+RUN apt-get update && apt-get install -y git-core wget golang-go
+
+RUN mkdir -p /app
+WORKDIR /app
+RUN git clone https://github.com/mishas/wstunnel.git
+WORKDIR /app/wstunnel
+
