@@ -1,0 +1,15 @@
+version: "3"
+services:
+  wstunnel_server:
+    build: .
+    command: /home/node/node_modules/.bin/wstunnel -s 0.0.0.0:443
+    ports:
+      - "0.0.0.0:443:443"
+  wstunnel_client:
+    build: .
+    command: /home/node/node_modules/.bin/wstunnel -t 33:2.2.2.2:33 ws://${WS_HOSTNAME}:443
+    ports:
+      - "0.0.0.0:33:33"
+    environment:
+      - WS_HOSTNAME=127.0.0.1
+    
